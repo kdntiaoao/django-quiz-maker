@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>作成 | Quiz Maker</title>
+    <title>ログイン | Quiz Maker</title>
 
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -137,107 +137,44 @@
       </header>
 
       <main class="l-main">
-        <div class="p-create-form">
-          <div class="p-create-form__inner">
-            <h2 id="form-label" class="p-create-form__heading">
-              クイズを作成する
-            </h2>
-            <div class="p-create-form__content">
-              <form
-                method="post"
-                class="p-create-form__form"
-                aria-labelledby="form-label"
-              >
-                <div class="p-create-form__fieldset-list">
-                  <fieldset class="p-create-form__fieldset-item">
-                    <label
-                      for="statement"
-                      class="p-create-form__statement-label"
-                      >問題文</label
+        <div class="p-login-form">
+          <div class="p-login-form__inner">
+            <div class="p-login-form__header">
+              <h2 class="p-login-form__heading is-active">ログイン</h2>
+              <a href="#" class="p-login-form__heading">新規登録</a>
+            </div>
+            <div class="p-login-form__content">
+              <form method="post" class="p-login-form__form">
+                <div class="p-login-form__field-list">
+                  <div class="p-login-form__field-container">
+                    <label for="username" class="p-login-form__field-label"
+                      >ユーザー名</label
                     >
-                    <textarea
-                      name="statement"
-                      id="statement"
-                      rows="2"
-                      class="p-create-form__statement-field"
-                    ></textarea>
-                  </fieldset>
-                  <fieldset class="p-create-form__fieldset-item">
-                    <div class="p-create-form__option-caption">選択肢</div>
-                    <div class="p-create-form__option-list">
-                      <div class="p-create-form__option-item">
-                        <label
-                          for="first-option"
-                          class="p-create-form__option-label"
-                          >1.</label
-                        >
-                        <input
-                          type="text"
-                          id="first-option"
-                          name="first-option"
-                          class="p-create-form__option-field"
-                        />
-                      </div>
-                      <div class="p-create-form__option-item">
-                        <label
-                          for="second-option"
-                          class="p-create-form__option-label"
-                          >2.</label
-                        >
-                        <input
-                          type="text"
-                          id="second-option"
-                          name="second-option"
-                          class="p-create-form__option-field"
-                        />
-                      </div>
-                      <div class="p-create-form__option-item">
-                        <label
-                          for="third-option"
-                          class="p-create-form__option-label"
-                          >3.</label
-                        >
-                        <input
-                          type="text"
-                          id="third-option"
-                          name="third-option"
-                          class="p-create-form__option-field"
-                        />
-                      </div>
-                      <div class="p-create-form__option-item">
-                        <label
-                          for="fourth-option"
-                          class="p-create-form__option-label"
-                          >4.</label
-                        >
-                        <input
-                          type="text"
-                          id="fourth-option"
-                          name="fourth-option"
-                          class="p-create-form__option-field"
-                        />
-                      </div>
-                      <div class="p-create-form__option-item">
-                        <label
-                          for="fifth-option"
-                          class="p-create-form__option-label"
-                          >5.</label
-                        >
-                        <input
-                          type="text"
-                          id="fifth-option"
-                          class="p-create-form__option-field"
-                        />
-                      </div>
-                    </div>
-                  </fieldset>
+                    <input
+                      type="text"
+                      name="username"
+                      id="username"
+                      class="p-login-form__field"
+                    />
+                  </div>
+                  <div class="p-login-form__field-container">
+                    <label for="password" class="p-login-form__field-label"
+                      >パスワード</label
+                    >
+                    <input
+                      type="password"
+                      name="password"
+                      id="password"
+                      class="p-login-form__field"
+                    />
+                  </div>
                 </div>
-                <div class="p-create-form__submit-btn-container">
+                <div class="p-login-form__submit-btn-container">
                   <button
                     type="submit"
-                    class="c-btn-primary c-btn-primary--success p-create-form__submit-btn"
+                    class="c-btn-primary c-btn-primary--primary p-login-form__submit-btn"
                   >
-                    作成
+                    ログイン
                   </button>
                 </div>
               </form>
