@@ -28,6 +28,7 @@ media
 build/
 develop-eggs/
 dist/
+!/scss-flocss-template/dist/
 downloads/
 eggs/
 .eggs/
