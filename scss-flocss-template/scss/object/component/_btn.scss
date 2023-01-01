@@ -23,4 +23,24 @@
   @include mix.mq(lg) {
     font-size: 20px;
   }
+
+  &--outlined {
+    border: 2px solid #777;
+    background-color: #fff;
+    color: inherit;
+    transition: box-shadow 0.4s ease, background-color 0.4s ease,
+      color 0.4s ease;
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: #777;
+        color: #fff;
+      }
+    }
+
+    &:active {
+      background-color: #777;
+      color: #fff;
+    }
+  }
 }

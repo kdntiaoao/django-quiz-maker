@@ -1,6 +1,6 @@
 @use '../../foundation/mixins' as mix;
 
-.p-thinking-quiz {
+.p-result-quiz {
   padding: 40px 14px;
 
   @include mix.mq(lg) {
@@ -70,24 +70,20 @@
     box-shadow: 0px 4px 4px rgba($color: #ccc, $alpha: 0.25);
     transition: box-shadow 0.4s ease, scale 0.4s ease;
 
-    @media (any-hover: hover) {
-      cursor: pointer;
-
-      &:hover {
-        scale: 1.02;
-        box-shadow: 0px 4px 8px rgba($color: #999, $alpha: 0.25);
-      }
-    }
-
-    &:active {
-      box-shadow: 0px 4px 8px rgba($color: #777, $alpha: 0.25);
-      scale: 1.02;
-    }
-
     &:has(:checked) {
       background-color: #999;
       font-weight: bold;
       color: #fff;
+
+      &.is-correct {
+        background-color: #85c67b;
+      }
+    }
+
+    &.is-incorrect {
+      background-color: #f2908c;
+      color: #fff;
+      font-weight: bold;
     }
 
     @include mix.mq(lg) {
@@ -98,12 +94,17 @@
   &__option-checkbox {
     accent-color: #555;
     width: 16px;
+    pointer-events: none;
     height: 16px;
 
     @include mix.mq(lg) {
       width: 20px;
       height: 20px;
     }
+  }
+
+  &__option-item.is-correct &__option-checkbox {
+    accent-color: #107a00;
   }
 
   &__option-text {
@@ -113,8 +114,8 @@
     margin-top: 44px;
   }
 
-  &__submit-btn {
-    min-width: 200px;
+  &__top-btn {
+    width: 200px;
     min-height: 48px;
     margin-right: auto;
     margin-left: auto;
