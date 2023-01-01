@@ -7,8 +7,9 @@
   display: grid;
   padding: 4px 18px;
   place-content: center;
-  box-shadow: 0 4px 4px rgba($color: #ccc, $alpha: 0.5);
+  box-shadow: 0 4px 4px rgba($color: #777, $alpha: 0.5);
   transition: box-shadow 0.4s ease;
+  font-weight: bold;
 
   @media (any-hover: hover) {
     &:hover {
@@ -22,6 +23,36 @@
 
   @include mix.mq(lg) {
     font-size: 20px;
+  }
+
+  &--success {
+    background-color: #42ab6f;
+    box-shadow: 0 4px 4px rgba($color: #42ab6f, $alpha: 0.5);
+
+    @media (any-hover: hover) {
+      &:hover {
+        box-shadow: 0 4px 10px rgba($color: #42ab6f, $alpha: 0.8);
+      }
+    }
+
+    &:active {
+      box-shadow: 0 4px 10px rgba($color: #42ab6f, $alpha: 1);
+    }
+  }
+
+  &--primary {
+    background-color: #a59aca;
+    box-shadow: 0 4px 4px rgba($color: #a59aca, $alpha: 0.5);
+
+    @media (any-hover: hover) {
+      &:hover {
+        box-shadow: 0 4px 10px rgba($color: #a59aca, $alpha: 0.8);
+      }
+    }
+
+    &:active {
+      box-shadow: 0 4px 10px rgba($color: #a59aca, $alpha: 1);
+    }
   }
 
   &--outlined {

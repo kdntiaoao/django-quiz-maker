@@ -68,7 +68,8 @@
     border-radius: 4px;
     padding: 10px 16px;
     box-shadow: 0px 4px 4px rgba($color: #ccc, $alpha: 0.25);
-    transition: box-shadow 0.4s ease, scale 0.4s ease;
+    transition: box-shadow 0.4s ease, scale 0.4s ease, border-color 0.4s ease;
+    border: 2px solid #fff;
 
     @media (any-hover: hover) {
       cursor: pointer;
@@ -85,9 +86,21 @@
     }
 
     &:has(:checked) {
-      background-color: #999;
+      border-color: #a59aca;
       font-weight: bold;
-      color: #fff;
+      box-shadow: 0px 4px 4px rgba($color: #a59aca, $alpha: 0.25);
+
+      @media (any-hover: hover) {
+        &:hover {
+          scale: 1.02;
+          box-shadow: 0px 4px 8px rgba($color: #a59aca, $alpha: 0.5);
+        }
+      }
+
+      &:active {
+        box-shadow: 0px 4px 8px rgba($color: #a59aca, $alpha: 0.8);
+        scale: 1.02;
+      }
     }
 
     @include mix.mq(lg) {
@@ -96,7 +109,7 @@
   }
 
   &__option-checkbox {
-    accent-color: #555;
+    accent-color: #6662a4;
     width: 16px;
     height: 16px;
 
