@@ -1,0 +1,125 @@
+@use '../../foundation/mixins' as mix;
+
+.p-result-quiz {
+  padding: 40px 14px;
+
+  @include mix.mq(lg) {
+    padding: 60px 20px;
+  }
+
+  &__inner {
+    width: 820px;
+    max-width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  &__statement {
+    font-size: 20px;
+
+    @include mix.mq(lg) {
+      font-size: 24px;
+    }
+  }
+
+  &__info-list {
+    margin-top: 16px;
+    display: grid;
+    justify-content: flex-end;
+    font-size: 14px;
+
+    @include mix.mq(lg) {
+      margin-top: 20px;
+      font-size: 16px;
+    }
+  }
+
+  &__info-item {
+    display: flex;
+    align-items: center;
+  }
+
+  &__info-title {
+    &::after {
+      content: '：';
+    }
+  }
+
+  &__info-data {
+  }
+
+  &__option-list {
+    margin-top: 32px;
+    gap: 16px;
+    display: grid;
+
+    @include mix.mq(lg) {
+      margin-top: 40px;
+      gap: 20px;
+      font-size: 20px;
+    }
+  }
+
+  &__option-item {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 10px 16px;
+    box-shadow: 0px 4px 4px rgba($color: #ccc, $alpha: 0.25);
+    transition: box-shadow 0.4s ease, scale 0.4s ease;
+
+    &:has(:checked) {
+      background-color: #999;
+      font-weight: bold;
+      color: #fff;
+
+      &.is-correct {
+        background-color: #85c67b;
+        box-shadow: 0px 4px 4px rgba($color: #85c67b, $alpha: 0.25);
+      }
+    }
+
+    &.is-incorrect {
+      background-color: #f2908c;
+      box-shadow: 0px 4px 4px rgba($color: #f2908c, $alpha: 0.25);
+      color: #fff;
+      font-weight: bold;
+    }
+
+    @include mix.mq(lg) {
+      gap: 16px;
+    }
+  }
+
+  &__option-checkbox {
+    accent-color: #555;
+    width: 16px;
+    pointer-events: none;
+    height: 16px;
+
+    @include mix.mq(lg) {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__option-item.is-correct &__option-checkbox {
+    accent-color: #107a00;
+  }
+
+  &__option-text {
+  }
+
+  &__submit-btn-container {
+    margin-top: 44px;
+  }
+
+  &__top-btn {
+    width: 200px;
+    min-height: 48px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}

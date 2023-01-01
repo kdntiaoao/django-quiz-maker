@@ -28,6 +28,7 @@ media
 build/
 develop-eggs/
 dist/
+!/scss-flocss-template/dist/
 downloads/
 eggs/
 .eggs/
@@ -178,6 +179,7 @@ cython_debug/
 
 # dependencies
 /node_modules
+**/node_modules
 /.pnp
 .pnp.js
 

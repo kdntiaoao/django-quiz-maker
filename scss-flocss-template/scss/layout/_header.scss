@@ -1,0 +1,293 @@
+@use '../foundation/mixins' as mix;
+
+.l-header {
+  &__main {
+    padding-right: 14px;
+    padding-left: 14px;
+    background-color: #fff;
+    box-shadow: 0 0 4px rgb(0 0 0 / 25%);
+
+    @include mix.mq(xl) {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 2;
+      width: 300px;
+      padding: 0;
+    }
+  }
+
+  &__main-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+
+    @include mix.mq(xl) {
+      display: block;
+      height: auto;
+    }
+  }
+
+  &__heading {
+    font-family: 'Dancing Script', cursive;
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 1;
+
+    @include mix.mq(xl) {
+      display: grid;
+      align-content: center;
+      height: 80px;
+      padding-right: 24px;
+      padding-left: 24px;
+      font-size: 40px;
+    }
+  }
+
+  &__menu-btn {
+    z-index: 2;
+    display: grid;
+    place-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: #f7f7f7;
+      }
+    }
+
+    &:active {
+      background-color: #f0f0f0;
+    }
+
+    @include mix.mq(xl) {
+      display: none;
+    }
+  }
+
+  &__menu-btn-inner {
+    position: relative;
+    display: block;
+    width: 24px;
+    height: 16px;
+  }
+
+  &__menu-line {
+    position: absolute;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+    transform-origin: -1px center;
+
+    &:nth-of-type(1) {
+      top: 0;
+      transition: transform 0.2s ease;
+    }
+
+    &:nth-of-type(2) {
+      top: 7px;
+      transition: opacity 0.2s ease;
+    }
+
+    &:nth-of-type(3) {
+      bottom: 0;
+      transition: transform 0.2s ease;
+    }
+  }
+
+  &__menu-btn[aria-expanded='true'] &__menu-line {
+    &:nth-of-type(1) {
+      transform: translate(4px, -2px) rotate(45deg);
+    }
+
+    &:nth-of-type(2) {
+      opacity: 0;
+    }
+
+    &:nth-of-type(3) {
+      transform: translate(4px, 2px) rotate(-45deg);
+    }
+  }
+
+  &__menu-nav {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    padding-top: 80px;
+    padding-bottom: 32px;
+    overflow-y: auto;
+    visibility: hidden;
+    background-color: #fff;
+
+    &.is-shown {
+      visibility: visible;
+      animation: fade-in 0.4s ease;
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+    }
+
+    &.is-hidden {
+      visibility: visible;
+      animation: fade-out 0.4s ease forwards;
+      @keyframes fade-out {
+        from {
+          opacity: 1;
+        }
+
+        to {
+          visibility: hidden;
+          opacity: 0;
+        }
+      }
+    }
+
+    @include mix.mq(xl) {
+      position: static;
+      padding-top: 42px;
+      visibility: visible;
+
+      &.is-hidden {
+        visibility: visible;
+        animation: none;
+      }
+    }
+  }
+
+  &__menu-list {
+  }
+
+  &__menu-item {
+    border-bottom: 1px solid #eee;
+  }
+
+  &__menu-link {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 16px 24px;
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: #f7f7f7;
+      }
+    }
+
+    &:active {
+      background-color: #f0f0f0;
+    }
+  }
+
+  &__menu-item-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  &__sub {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    visibility: hidden;
+
+    &.is-shown {
+      visibility: visible;
+      animation: fade-in 0.4s ease;
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+    }
+
+    &.is-hidden {
+      visibility: visible;
+      animation: fade-out 0.4s ease forwards;
+      @keyframes fade-out {
+        from {
+          opacity: 1;
+        }
+
+        to {
+          visibility: hidden;
+          opacity: 0;
+        }
+      }
+    }
+
+    @include mix.mq(xl) {
+      visibility: visible;
+
+      &.is-hidden {
+        visibility: visible;
+        animation: none;
+      }
+    }
+  }
+
+  &__sub-inner {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    padding-left: 14px;
+
+    @include mix.mq(xl) {
+      justify-content: flex-end;
+      height: 80px;
+      padding-right: 48px;
+      padding-left: 348px;
+      background-color: #fff;
+    }
+  }
+
+  &__account {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    min-height: 44px;
+    padding: 8px;
+    border-radius: 8px;
+
+    @media (any-hover: hover) {
+      cursor: pointer;
+
+      &:hover {
+        background-color: #f7f7f7;
+      }
+    }
+
+    &:active {
+      background-color: #f0f0f0;
+    }
+  }
+
+  &__account-icon {
+    width: 24px;
+    height: 24px;
+
+    @include mix.mq(xl) {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  &__username {
+  }
+}
