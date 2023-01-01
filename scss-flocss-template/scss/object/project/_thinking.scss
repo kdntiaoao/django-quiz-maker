@@ -114,30 +114,9 @@
   }
 
   &__submit-btn {
-    background-color: #777;
-    color: #fff;
-    border-radius: 999px;
-    width: 200px;
-    height: 48px;
+    min-width: 200px;
+    min-height: 48px;
     margin-right: auto;
     margin-left: auto;
-    display: grid;
-    place-content: center;
-    box-shadow: 0 4px 4px rgba($color: #ccc, $alpha: 0.5);
-    transition: box-shadow 0.4s ease;
-
-    @media (any-hover: hover) {
-      &:hover {
-        box-shadow: 0px 4px 10px rgba($color: #777, $alpha: 0.8);
-      }
-    }
-
-    &:active {
-      box-shadow: 0px 4px 10px rgba($color: #777, $alpha: 1);
-    }
-
-    @include mix.mq(lg) {
-      font-size: 20px;
-    }
   }
 }

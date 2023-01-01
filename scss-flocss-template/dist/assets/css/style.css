@@ -362,6 +362,30 @@ h6 {
   }
 }
 
+.c-btn-primary {
+  background-color: #777;
+  color: #fff;
+  border-radius: 999px;
+  display: grid;
+  padding: 4px 18px;
+  place-content: center;
+  box-shadow: 0 4px 4px rgba(204, 204, 204, 0.5);
+  transition: box-shadow 0.4s ease;
+}
+@media (any-hover: hover) {
+  .c-btn-primary:hover {
+    box-shadow: 0px 4px 10px rgba(119, 119, 119, 0.8);
+  }
+}
+.c-btn-primary:active {
+  box-shadow: 0px 4px 10px #777777;
+}
+@media screen and (min-width: 1024px) {
+  .c-btn-primary {
+    font-size: 20px;
+  }
+}
+
 .p-index-quizzes {
   padding: 40px 14px;
 }
@@ -810,30 +834,10 @@ h6 {
   margin-top: 44px;
 }
 .p-create-form__submit-btn {
-  background-color: #777;
-  color: #fff;
-  border-radius: 999px;
-  width: 200px;
-  height: 48px;
+  min-width: 200px;
+  min-height: 48px;
   margin-right: auto;
   margin-left: auto;
-  display: grid;
-  place-content: center;
-  box-shadow: 0 4px 4px rgba(204, 204, 204, 0.5);
-  transition: box-shadow 0.4s ease;
-}
-@media (any-hover: hover) {
-  .p-create-form__submit-btn:hover {
-    box-shadow: 0px 4px 10px rgba(119, 119, 119, 0.8);
-  }
-}
-.p-create-form__submit-btn:active {
-  box-shadow: 0px 4px 10px #777777;
-}
-@media screen and (min-width: 1024px) {
-  .p-create-form__submit-btn {
-    font-size: 20px;
-  }
 }
 
 .p-thinking-quiz {
@@ -937,30 +941,10 @@ h6 {
   margin-top: 44px;
 }
 .p-thinking-quiz__submit-btn {
-  background-color: #777;
-  color: #fff;
-  border-radius: 999px;
-  width: 200px;
-  height: 48px;
+  min-width: 200px;
+  min-height: 48px;
   margin-right: auto;
   margin-left: auto;
-  display: grid;
-  place-content: center;
-  box-shadow: 0 4px 4px rgba(204, 204, 204, 0.5);
-  transition: box-shadow 0.4s ease;
-}
-@media (any-hover: hover) {
-  .p-thinking-quiz__submit-btn:hover {
-    box-shadow: 0px 4px 10px rgba(119, 119, 119, 0.8);
-  }
-}
-.p-thinking-quiz__submit-btn:active {
-  box-shadow: 0px 4px 10px #777777;
-}
-@media screen and (min-width: 1024px) {
-  .p-thinking-quiz__submit-btn {
-    font-size: 20px;
-  }
 }
 
 .u-fixed {
