@@ -1,0 +1,44 @@
+{% extends 'base.html' %} {% block main %}
+<div class="p-result-quiz">
+  <div class="p-result-quiz__inner">
+    <h2 id="quiz-statement" class="p-result-quiz__statement">
+      ペンで書いた字を消してしまいそうな入れ物ものはなーんだ？
+    </h2>
+    <dl class="p-result-quiz__info-list">
+      <div class="p-result-quiz__info-item">
+        <dt class="p-result-quiz__info-title">作成者</dt>
+        <dd class="p-result-quiz__info-data">tanaka</dd>
+      </div>
+      <div class="p-result-quiz__info-item">
+        <dt class="p-result-quiz__info-title">作成日</dt>
+        <dd class="p-result-quiz__info-data">2022年12月31日 16:57</dd>
+      </div>
+    </dl>
+    <div class="p-result-quiz__option-list">
+      <div class="p-result-quiz__option-item is-correct">
+        <input type="checkbox" name="first-option" id="first-option" class="p-result-quiz__option-checkbox" checked />
+        <span class="p-result-quiz__option-text">ペンケース</span>
+      </div>
+      <div class="p-result-quiz__option-item">
+        <input type="checkbox" name="second-option" id="second-option" class="p-result-quiz__option-checkbox" checked />
+        <span class="p-result-quiz__option-text">ペンケース</span>
+      </div>
+      <div class="p-result-quiz__option-item is-incorrect">
+        <input type="checkbox" name="third-option" id="third-option" class="p-result-quiz__option-checkbox" />
+        <span class="p-result-quiz__option-text">ペンケース</span>
+      </div>
+      <div class="p-result-quiz__option-item">
+        <input type="checkbox" name="fourth-option" id="fourth-option" class="p-result-quiz__option-checkbox" />
+        <span class="p-result-quiz__option-text">ペンケース</span>
+      </div>
+      <div class="p-result-quiz__option-item">
+        <input type="checkbox" name="fifth-option" id="fifth-option" class="p-result-quiz__option-checkbox" />
+        <span class="p-result-quiz__option-text">ペンケース</span>
+      </div>
+    </div>
+    <div class="p-result-quiz__submit-btn-container">
+      <a href="#" class="c-btn-primary c-btn-primary--outlined p-result-quiz__top-btn"> ホーム </a>
+    </div>
+  </div>
+</div>
+{% endblock %}

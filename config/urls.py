@@ -1,15 +1,12 @@
 from django.contrib import admin
 from django.urls import include, path
-from django.template.response import TemplateResponse
 
-
-def top(request):
-    return TemplateResponse(request, "quizzes/top.html")
+from quizzes.views import index
 
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", top),
+    path("", index, name="index"),
     path("accounts/", include("accounts.urls")),
-    # path('quizzes/', include('quizzes.urls'))
+    path("quizzes/", include("quizzes.urls")),
 ]

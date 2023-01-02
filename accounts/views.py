@@ -16,7 +16,6 @@ class ResisterView(View):
 
     def post(self, request, *args, **kwargs):
         form = UserCreationForm(request.POST)
-        print(form.errors)
         if not form.is_valid():
             return TemplateResponse(request, "accounts/register.html", {"form": form})
         user = form.save()
