@@ -65,6 +65,39 @@
     }
   }
 
+  &__error {
+    display: none;
+
+    &.is-active {
+      display: block;
+      background-color: #f2908c;
+      border-radius: 4px;
+      color: #fff;
+      padding: 8px 16px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 4px rgba($color: #f2908c, $alpha: 0.2);
+
+      @include mix.mq(lg) {
+        padding: 12px 24px;
+        margin-bottom: 32px;
+      }
+    }
+  }
+
+  &__error-inner {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__error-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  &__error-text {
+  }
+
   &__field-list {
     display: grid;
     gap: 40px;

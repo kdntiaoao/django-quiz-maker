@@ -1,10 +1,10 @@
 from django.contrib import admin
 from django.urls import include, path
-from django.http.response import HttpResponse
+from django.template.response import TemplateResponse
 
 
 def top(request):
-    return HttpResponse("top")
+    return TemplateResponse(request, "quizzes/top.html")
 
 
 urlpatterns = [
