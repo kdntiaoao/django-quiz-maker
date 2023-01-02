@@ -1,2 +1,2 @@
-static/**/*.html
+templates/**/*.html
 static/**/*.css

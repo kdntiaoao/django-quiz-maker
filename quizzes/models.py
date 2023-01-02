@@ -9,21 +9,11 @@ class Quiz(models.Model):
     option3 = models.CharField("選択肢3", max_length=150)
     option4 = models.CharField("選択肢4", max_length=150)
     option5 = models.CharField("選択肢5", max_length=150)
-    answer1 = models.IntegerField(
-        "解答番号1", choices=((1, 1), (2, 2), (3, 3), (4, 4), (5, 5)), default=1
-    )
-    answer2 = models.IntegerField(
-        "解答番号2", choices=((1, 1), (2, 2), (3, 3), (4, 4), (5, 5)), null=True, blank=True
-    )
-    answer3 = models.IntegerField(
-        "解答番号3", choices=((1, 1), (2, 2), (3, 3), (4, 4), (5, 5)), null=True, blank=True
-    )
-    answer4 = models.IntegerField(
-        "解答番号4", choices=((1, 1), (2, 2), (3, 3), (4, 4), (5, 5)), null=True, blank=True
-    )
-    answer5 = models.IntegerField(
-        "解答番号5", choices=((1, 1), (2, 2), (3, 3), (4, 4), (5, 5)), null=True, blank=True
-    )
+    is_option1_correct = models.BooleanField("選択肢1は正解か", default=False)
+    is_option2_correct = models.BooleanField("選択肢2は正解か", default=False)
+    is_option3_correct = models.BooleanField("選択肢3は正解か", default=False)
+    is_option4_correct = models.BooleanField("選択肢4は正解か", default=False)
+    is_option5_correct = models.BooleanField("選択肢5は正解か", default=False)
     created_by = models.ForeignKey(
         settings.AUTH_USER_MODEL, verbose_name="作成者", on_delete=models.CASCADE
     )
