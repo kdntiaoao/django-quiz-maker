@@ -1,19 +1,20 @@
-from django.http import HttpResponse
-from django.shortcuts import render
+from django.contrib.auth import views as auth_views
+from django.contrib.auth.forms import UserChangeForm
+from django.contrib.auth.models import User
+from django.template.response import TemplateResponse
 from django.views import View
 
 
 class ResisterView(View):
     def get(self, request, *args, **kwargs):
-        return HttpResponse("register")
+        return TemplateResponse(request, "accounts/register.html")
 
 
 register = ResisterView.as_view()
 
 
-class LoginView(View):
-    def get(self, request, *args, **kwargs):
-        return HttpResponse("login")
+class LoginView(auth_views.LogoutView):
+    template_name = "accounts/login.html"
 
 
 login = LoginView.as_view()

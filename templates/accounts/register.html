@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% block title %}新規登録 | Quiz Maker{% endblock %} {% block main %}
+<div class="p-register-form">
+  <div class="p-register-form__inner">
+    <div class="p-register-form__header">
+      <a href="{% url 'accounts:login' %}" class="p-register-form__heading">ログイン</a>
+      <h2 class="p-register-form__heading is-active">新規登録</h2>
+    </div>
+    <div class="p-register-form__content">
+      <form method="post" class="p-register-form__form">
+        <div class="p-register-form__field-list">
+          <div class="p-register-form__field-container">
+            <label for="username" class="p-register-form__field-label">ユーザー名</label>
+            <input type="text" name="username" id="username" class="p-register-form__field" />
+          </div>
+          <div class="p-register-form__field-container">
+            <label for="password" class="p-register-form__field-label">パスワード</label>
+            <input type="password" name="password" id="password" class="p-register-form__field" />
+          </div>
+        </div>
+        <div class="p-register-form__submit-btn-container">
+          <button type="submit" class="c-btn-primary c-btn-primary--primary p-register-form__submit-btn">
+            新規登録
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
