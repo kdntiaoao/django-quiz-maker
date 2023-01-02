@@ -7,6 +7,7 @@
     </div>
     <div class="p-register-form__content">
       <form method="post" class="p-register-form__form">
+        {% csrf_token %}
         <div class="p-register-form__field-list">
           <div class="p-register-form__field-container">
             <label for="username" class="p-register-form__field-label">ユーザー名</label>

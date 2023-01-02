@@ -13,7 +13,7 @@ class ResisterView(View):
 register = ResisterView.as_view()
 
 
-class LoginView(auth_views.LogoutView):
+class LoginView(auth_views.LoginView):
     template_name = "accounts/login.html"
 
 

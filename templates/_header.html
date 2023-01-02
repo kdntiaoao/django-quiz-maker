@@ -62,8 +62,20 @@
               解答
             </a>
           </li>
+          {% if user.is_authenticated %}
           <li class="l-header__menu-item">
             <a href="#" class="l-header__menu-link">
+              <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 48 48" class="l-header__menu-item-icon">
+                <path
+                  d="M9 42q-1.2 0-2.1-.9Q6 40.2 6 39V9q0-1.2.9-2.1Q7.8 6 9 6h14.55v3H9v30h14.55v3Zm24.3-9.25-2.15-2.15 5.1-5.1h-17.5v-3h17.4l-5.1-5.1 2.15-2.15 8.8 8.8Z"
+                />
+              </svg>
+              ログアウト
+            </a>
+          </li>
+          {% else %}
+          <li class="l-header__menu-item">
+            <a href="{% url 'accounts:login' %}" class="l-header__menu-link">
               <svg
                 fill="currentColor"
                 xmlns="http://www.w3.org/2000/svg"
@@ -78,7 +90,7 @@
             </a>
           </li>
           <li class="l-header__menu-item">
-            <a href="#" class="l-header__menu-link">
+            <a href="{% url 'accounts:register' %}" class="l-header__menu-link">
               <svg
                 fill="currentColor"
                 xmlns="http://www.w3.org/2000/svg"
@@ -92,6 +104,7 @@
               新規登録
             </a>
           </li>
+          {% endif %}
         </ul>
       </nav>
     </div>
@@ -99,6 +112,7 @@
 
   <div class="l-header__sub js-header-sub">
     <div class="l-header__sub-inner">
+      {% if user.is_authenticated %}
       <div class="l-header__account">
         <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 48 48" class="l-header__account-icon">
           <path
@@ -107,6 +121,7 @@
         </svg>
         <div class="l-header__username">tanaka</div>
       </div>
+      {% endif %}
     </div>
   </div>
 </header>
