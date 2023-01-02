@@ -87,18 +87,69 @@
   }
 
   &__option-list {
-    margin-top: 16px;
+    margin-top: 20px;
     display: grid;
-    gap: 12px;
+    gap: 6px;
+  }
+
+  &__option-list-header {
+    padding-left: 4px;
+    font-size: 14px;
+
+    @include mix.mq(lg) {
+      font-size: 16px;
+    }
   }
 
   &__option-item {
     display: flex;
     align-items: center;
+    padding: 10px 10px 10px 8px;
+    border-radius: 4px;
+
+    &:has(:checked) {
+      background-color: #85c67b;
+      color: #fff;
+      font-weight: bold;
+    }
   }
 
-  &__option-label {
+  &__option-item:has(&__checkbox-field:hover) {
+    background-color: #edf4ec;
+
+    &:has(:checked) {
+      background-color: #85c67b;
+      color: #fff;
+      font-weight: bold;
+    }
+  }
+
+  &__checkbox-field {
+    accent-color: #107a00;
+    width: 16px;
+    height: 16px;
+
+    @media (any-hover: hover) {
+      cursor: pointer;
+    }
+
+    @include mix.mq(lg) {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__checkbox-label {
     width: 40px;
+    padding-right: 32px;
+    padding-left: 16px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    @media (any-hover: hover) {
+      cursor: pointer;
+    }
   }
 
   &__option-field {
@@ -107,10 +158,16 @@
     border-bottom: 1px solid #ccc;
     border-radius: 0;
     padding: 4px 8px;
+    background-color: inherit;
+    color: inherit;
 
     @include mix.mq(lg) {
       padding: 8px 12px;
     }
+  }
+
+  &__option-item:has(:checked) &__option-field {
+    border-bottom: 1px solid #fff;
   }
 
   &__submit-btn-container {
