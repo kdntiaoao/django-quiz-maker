@@ -1,3 +1,5 @@
+import math
+
 from django.http.response import HttpResponseRedirect
 from django.shortcuts import get_object_or_404
 from django.template.response import TemplateResponse
@@ -9,8 +11,26 @@ from .models import Quiz
 
 class IndexView(View):
     def get(self, request, *args, **kwargs):
-        quizzes = Quiz.objects.select_related("created_by").all()
-        return TemplateResponse(request, "quizzes/index.html", {"quizzes": quizzes})
+        total_count = Quiz.objects.select_related("created_by").all().count()
+        total_page = math.ceil(total_count / 10)
+        current_page = int(
+            request.GET.get("current") if request.GET.get("current") else 1
+        )
+        quizzes = (
+            Quiz.objects.select_related("created_by")
+            .order_by("-updated_at")
+            .all()[(current_page - 1) * 10 : current_page * 10]
+        )
+        return TemplateResponse(
+            request,
+            "quizzes/index.html",
+            {
+                "quizzes": quizzes,
+                "total_count": total_count,
+                "total_page": total_page,
+                "current_page": current_page,
+            },
+        )
 
 
 index = IndexView.as_view()
