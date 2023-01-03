@@ -34,6 +34,7 @@
               ホーム
             </a>
           </li>
+          {% if user.is_authenticated %}
           <li class="l-header__menu-item">
             <a href="{% url 'quizzes:create' %}" class="l-header__menu-link">
               <svg
@@ -49,7 +50,6 @@
               作成
             </a>
           </li>
-          {% if user.is_authenticated %}
           <li class="l-header__menu-item">
             <a href="{% url 'accounts:logout' %}" class="l-header__menu-link">
               <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 48 48" class="l-header__menu-item-icon">

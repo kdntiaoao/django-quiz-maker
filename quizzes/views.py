@@ -7,6 +7,7 @@ from django.template.response import TemplateResponse
 from django.urls import reverse
 from django.views.generic import View
 
+from .forms import QuizForm
 from .models import Quiz
 
 
@@ -151,7 +152,17 @@ result = ResultView.as_view()
 
 class QuizCreateView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
-        return TemplateResponse(request, "quizzes/create.html")
+        form = QuizForm()
+        return TemplateResponse(request, "quizzes/create.html", {"form": form})
+
+    def post(self, request, *args, **kwargs):
+        form = QuizForm(request.POST)
+        if not form.is_valid():
+            return TemplateResponse(request, "quizzes/create.html", {"form": form})
+        quiz = form.save(commit=False)
+        quiz.created_by = request.user
+        quiz.save()
+        return HttpResponseRedirect(reverse("index"))
 
 
 create = QuizCreateView.as_view()
