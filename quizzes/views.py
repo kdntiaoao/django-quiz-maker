@@ -1,5 +1,7 @@
+from django.http.response import HttpResponseRedirect
 from django.shortcuts import get_object_or_404
 from django.template.response import TemplateResponse
+from django.urls import reverse
 from django.views.generic import View
 
 from .models import Quiz
@@ -17,7 +19,60 @@ index = IndexView.as_view()
 class ThinkingView(View):
     def get(self, request, quiz_id, *args, **kwargs):
         quiz = get_object_or_404(Quiz, pk=quiz_id)
-        return TemplateResponse(request, "quizzes/thinking.html", {"quiz": quiz})
+        formatted_quiz = {
+            "statement": quiz.statement,
+            "options": [
+                {
+                    "text": quiz.option1,
+                    "name": "option1",
+                    "is_correct": quiz.is_option1_correct,
+                },
+                {
+                    "text": quiz.option2,
+                    "name": "option2",
+                    "is_correct": quiz.is_option2_correct,
+                },
+                {
+                    "text": quiz.option3,
+                    "name": "option3",
+                    "is_correct": quiz.is_option3_correct,
+                },
+                {
+                    "text": quiz.option4,
+                    "name": "option4",
+                    "is_correct": quiz.is_option4_correct,
+                },
+                {
+                    "text": quiz.option5,
+                    "name": "option5",
+                    "is_correct": quiz.is_option5_correct,
+                },
+            ],
+            "created_by": quiz.created_by,
+            "created_at": quiz.created_at,
+            "updated_at": quiz.updated_at,
+        }
+        return TemplateResponse(
+            request, "quizzes/thinking.html", {"quiz": formatted_quiz}
+        )
+
+    def post(self, request, quiz_id, *args, **kwargs):
+        selected_answers = [
+            request.POST.get("option1"),
+            request.POST.get("option2"),
+            request.POST.get("option3"),
+            request.POST.get("option4"),
+            request.POST.get("option5"),
+        ]
+        selects = ",".join(
+            [str(i + 1) for i, x in enumerate(selected_answers) if x == "on"]
+        )
+        url = (
+            reverse("quizzes:result", kwargs={"quiz_id": quiz_id})
+            + "?selects="
+            + selects
+        )
+        return HttpResponseRedirect(url)
 
 
 thinking = ThinkingView.as_view()
@@ -26,7 +81,48 @@ thinking = ThinkingView.as_view()
 class ResultView(View):
     def get(self, request, quiz_id, *args, **kwargs):
         quiz = get_object_or_404(Quiz, pk=quiz_id)
-        return TemplateResponse(request, "quizzes/result.html", {"quiz": quiz})
+        selects = request.GET.get("selects").split(",")
+        formatted_quiz = {
+            "statement": quiz.statement,
+            "options": [
+                {
+                    "text": quiz.option1,
+                    "name": "option1",
+                    "is_correct": quiz.is_option1_correct,
+                    "is_select": "1" in selects,
+                },
+                {
+                    "text": quiz.option2,
+                    "name": "option2",
+                    "is_correct": quiz.is_option2_correct,
+                    "is_select": "2" in selects,
+                },
+                {
+                    "text": quiz.option3,
+                    "name": "option3",
+                    "is_correct": quiz.is_option3_correct,
+                    "is_select": "3" in selects,
+                },
+                {
+                    "text": quiz.option4,
+                    "name": "option4",
+                    "is_correct": quiz.is_option4_correct,
+                    "is_select": "4" in selects,
+                },
+                {
+                    "text": quiz.option5,
+                    "name": "option5",
+                    "is_correct": quiz.is_option5_correct,
+                    "is_select": "5" in selects,
+                },
+            ],
+            "created_by": quiz.created_by,
+            "created_at": quiz.created_at,
+            "updated_at": quiz.updated_at,
+        }
+        return TemplateResponse(
+            request, "quizzes/result.html", {"quiz": formatted_quiz}
+        )
 
 
 result = ResultView.as_view()

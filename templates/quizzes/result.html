@@ -16,29 +16,15 @@
       </div>
     </dl>
     <div class="p-result-quiz__option-list">
-      <div class="p-result-quiz__option-item {{ quiz.is_option1_correct|yesno:'is-correct,'}}">
-        <input type="checkbox" name="option1" class="p-result-quiz__option-checkbox" />
-        <span class="p-result-quiz__option-text">{{ quiz.option1 }}</span>
+      {% for option in quiz.options %}
+      <div class="p-result-quiz__option-item {{ option.is_correct|yesno:'is-correct,'}}">
+        <input type="checkbox" name="{{ option.name }}" class="p-result-quiz__option-checkbox" {{ option.is_select|yesno:'checked,' }} />
+        <span class="p-result-quiz__option-text">{{ option.text }}</span>
       </div>
-      <div class="p-result-quiz__option-item {{ quiz.is_option2_correct|yesno:'is-correct,' }}">
-        <input type="checkbox" name="option2" class="p-result-quiz__option-checkbox" />
-        <span class="p-result-quiz__option-text">{{ quiz.option2 }}</span>
-      </div>
-      <div class="p-result-quiz__option-item {{ quiz.is_option3_correct|yesno:'is-correct,' }}">
-        <input type="checkbox" name="option3" class="p-result-quiz__option-checkbox" />
-        <span class="p-result-quiz__option-text">{{ quiz.option3 }}</span>
-      </div>
-      <div class="p-result-quiz__option-item {{ quiz.is_option4_correct|yesno:'is-correct,' }}">
-        <input type="checkbox" name="option4" class="p-result-quiz__option-checkbox" />
-        <span class="p-result-quiz__option-text">{{ quiz.option4 }}</span>
-      </div>
-      <div class="p-result-quiz__option-item {{ quiz.is_option5_correct|yesno:'is-correct,' }}">
-        <input type="checkbox" name="option5" class="p-result-quiz__option-checkbox" />
-        <span class="p-result-quiz__option-text">{{ quiz.option5 }}</span>
-      </div>
+      {% endfor %}
     </div>
     <div class="p-result-quiz__submit-btn-container">
-      <a href="#" class="c-btn-primary c-btn-primary--outlined p-result-quiz__top-btn"> ホーム </a>
+      <a href="{% url 'index' %}" class="c-btn-primary c-btn-primary--outlined p-result-quiz__top-btn"> ホーム </a>
     </div>
   </div>
 </div>
