@@ -34,6 +34,39 @@
   &__form {
   }
 
+  &__error {
+    display: none;
+
+    &.is-active {
+      display: block;
+      background-color: #f2908c;
+      border-radius: 4px;
+      color: #fff;
+      padding: 8px 16px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 4px rgba($color: #f2908c, $alpha: 0.2);
+
+      @include mix.mq(lg) {
+        padding: 12px 24px;
+        margin-bottom: 32px;
+      }
+    }
+  }
+
+  &__error-inner {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__error-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  &__error-text {
+  }
+
   &__fieldset-list {
     display: grid;
     gap: 32px;
@@ -78,6 +111,24 @@
     }
   }
 
+  &__field-helper-list {
+    font-size: 12px;
+    margin-top: 4px;
+    list-style: disc;
+    padding-left: 1em;
+
+    @include mix.mq(lg) {
+      font-size: 14px;
+      margin-top: 8px;
+    }
+  }
+
+  &__field-helper-item {
+    &--error {
+      color: #b7282d;
+    }
+  }
+
   &__option-caption {
     font-weight: bold;
 
@@ -102,6 +153,9 @@
   }
 
   &__option-item {
+  }
+
+  &__option-item-inner {
     display: flex;
     align-items: center;
     padding: 10px 10px 10px 8px;
@@ -114,7 +168,7 @@
     }
   }
 
-  &__option-item:has(&__checkbox-field:hover) {
+  &__option-item-inner:has(&__checkbox-field:hover) {
     background-color: #edf4ec;
 
     &:has(:checked) {

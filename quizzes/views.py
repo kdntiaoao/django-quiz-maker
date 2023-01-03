@@ -158,6 +158,7 @@ class QuizCreateView(LoginRequiredMixin, View):
     def post(self, request, *args, **kwargs):
         form = QuizForm(request.POST)
         if not form.is_valid():
+            print(form.errors)
             return TemplateResponse(request, "quizzes/create.html", {"form": form})
         quiz = form.save(commit=False)
         quiz.created_by = request.user
