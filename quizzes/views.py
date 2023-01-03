@@ -1,5 +1,6 @@
 import math
 
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http.response import HttpResponseRedirect
 from django.shortcuts import get_object_or_404
 from django.template.response import TemplateResponse
@@ -146,3 +147,11 @@ class ResultView(View):
 
 
 result = ResultView.as_view()
+
+
+class QuizCreateView(LoginRequiredMixin, View):
+    def get(self, request, *args, **kwargs):
+        return TemplateResponse(request, "quizzes/create.html")
+
+
+create = QuizCreateView.as_view()

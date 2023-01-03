@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+{% block main %}
+<div class="p-create-form">
+  <div class="p-create-form__inner">
+    <h2 id="form-label" class="p-create-form__heading">
+      クイズを作成する
+    </h2>
+    <div class="p-create-form__content">
+      <form
+        method="post"
+        class="p-create-form__form"
+        aria-labelledby="form-label"
+      >
+        <div class="p-create-form__fieldset-list">
+          <fieldset class="p-create-form__fieldset-item">
+            <label
+              for="statement"
+              class="p-create-form__statement-label"
+              >問題文</label
+            >
+            <textarea
+              name="statement"
+              id="statement"
+              rows="2"
+              class="p-create-form__statement-field"
+            ></textarea>
+          </fieldset>
+          <fieldset class="p-create-form__fieldset-item">
+            <div class="p-create-form__option-caption">選択肢</div>
+            <div class="p-create-form__option-list">
+              <div class="p-create-form__option-list-header">解答</div>
+              <div class="p-create-form__option-item">
+                <input
+                  type="checkbox"
+                  name="is_option1_correct"
+                  id="is_option1_correct"
+                  class="p-create-form__checkbox-field"
+                />
+                <label
+                  for="is_option1_correct"
+                  class="p-create-form__checkbox-label"
+                  >1.</label
+                >
+                <input
+                  type="text"
+                  id="option1"
+                  name="option1"
+                  class="p-create-form__option-field"
+                />
+              </div>
+              <div class="p-create-form__option-item">
+                <input
+                  type="checkbox"
+                  name="is_option2_correct"
+                  id="is_option2_correct"
+                  class="p-create-form__checkbox-field"
+                />
+                <label
+                  for="is_option2_correct"
+                  class="p-create-form__checkbox-label"
+                  >2.</label
+                >
+                <input
+                  type="text"
+                  id="option2"
+                  name="option2"
+                  class="p-create-form__option-field"
+                />
+              </div>
+              <div class="p-create-form__option-item">
+                <input
+                  type="checkbox"
+                  name="is_option3_correct"
+                  id="is_option3_correct"
+                  class="p-create-form__checkbox-field"
+                />
+                <label
+                  for="is_option3_correct"
+                  class="p-create-form__checkbox-label"
+                  >3.</label
+                >
+                <input
+                  type="text"
+                  id="option3"
+                  name="option3"
+                  class="p-create-form__option-field"
+                />
+              </div>
+              <div class="p-create-form__option-item">
+                <input
+                  type="checkbox"
+                  name="is_option4_correct"
+                  id="is_option4_correct"
+                  class="p-create-form__checkbox-field"
+                />
+                <label
+                  for="is_option4_correct"
+                  class="p-create-form__checkbox-label"
+                  >4.</label
+                >
+                <input
+                  type="text"
+                  id="option4"
+                  name="option4"
+                  class="p-create-form__option-field"
+                />
+              </div>
+              <div class="p-create-form__option-item">
+                <input
+                  type="checkbox"
+                  name="is_option5_correct"
+                  id="is_option5_correct"
+                  class="p-create-form__checkbox-field"
+                />
+                <label
+                  for="is_option5_correct"
+                  class="p-create-form__checkbox-label"
+                  >5.</label
+                >
+                <input
+                  type="text"
+                  id="option5"
+                  name="option5"
+                  class="p-create-form__option-field"
+                />
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="p-create-form__submit-btn-container">
+          <button
+            type="submit"
+            class="c-btn-primary c-btn-primary--success p-create-form__submit-btn"
+          >
+            作成
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
