@@ -7,7 +7,9 @@
     </div>
     <div class="p-register-form__content">
       <form method="post" class="p-register-form__form">
-        {% csrf_token %} {% if form.errors %}
+        {% csrf_token %}
+
+        {% if form.errors %}
         <div class="p-register-form__error is-active">
           <div class="p-register-form__error-inner">
             <svg
@@ -24,36 +26,43 @@
           </div>
         </div>
         {% endif %}
+
         <div class="p-register-form__field-list">
           <div class="p-register-form__field-container">
             <label for="username" class="p-register-form__field-label">ユーザー名</label>
             <input type="text" name="username" id="username" class="p-register-form__field" />
             <ul class="p-register-form__field-helper-list">
-              {% if form.username.errors %} {% for error in form.username.errors %}
-              <li class="p-register-form__field-helper-item p-register-form__field-helper-item--error">{{ error }}</li>
-              {% endfor %} {% endif %}
+              {% if form.username.errors %}
+                {% for error in form.username.errors %}
+                <li class="p-register-form__field-helper-item p-register-form__field-helper-item--error">{{ error }}</li>
+                {% endfor %}
+              {% endif %}
             </ul>
           </div>
           <div class="p-register-form__field-container">
             <label for="password1" class="p-register-form__field-label">パスワード</label>
             <input type="password" name="password1" id="password1" class="p-register-form__field" />
             <ul class="p-register-form__field-helper-list">
-              {% if form.password1.errors %} {% for error in form.password1.errors %}
-              <li class="p-register-form__field-helper-item p-register-form__field-helper-item--error">{{ error }}</li>
-              {% endfor %} {% elif form.password1.html_name == 'password1' %}
-              <li class="p-register-form__field-helper-item">パスワードは最低 8 文字以上必要です。</li>
-              <li class="p-register-form__field-helper-item">数字だけのパスワードにはできません。</li>
+              {% if form.password1.errors %}
+                {% for error in form.password1.errors %}
+                <li class="p-register-form__field-helper-item p-register-form__field-helper-item--error">{{ error }}</li>
+                {% endfor %}
+              {% elif form.password1.html_name == 'password1' %}
+                <li class="p-register-form__field-helper-item">パスワードは最低 8 文字以上必要です。</li>
+                <li class="p-register-form__field-helper-item">数字だけのパスワードにはできません。</li>
               {% endif %}
             </ul>
           </div>
           <div class="p-register-form__field-container">
             <label for="password2" class="p-register-form__field-label">確認用パスワード</label>
             <input type="password" name="password2" id="password2" class="p-register-form__field" />
+            {% if form.password2.errors %}
             <ul class="p-register-form__field-helper-list">
-              {% if form.password2.errors %} {% for error in form.password2.errors %}
+              {% for error in form.password2.errors %}
               <li class="p-register-form__field-helper-item p-register-form__field-helper-item--error">{{ error }}</li>
-              {% endfor %} {% endif %}
+              {% endfor %}
             </ul>
+            {% endif %}
           </div>
         </div>
         <div class="p-register-form__submit-btn-container">
