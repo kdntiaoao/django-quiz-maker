@@ -17,10 +17,6 @@ DEBUG = False
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
 
 
-STATIC_ROOT = BASE_DIR / "static_root"
-MEDIA_ROOT = BASE_DIR / "media_root"
-
-
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
